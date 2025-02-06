@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_stripe__payments
+    description: One unique payment for order per row
+    columns:
+      - name: payment_id
+        description: A qniue id of a payment. Primary Key
+      - name: order_id
+        description: An order that is linked to the payment
+      - name: payment_method
+        description: "{{ doc('payment_method') }}"
+      - name: amount
+        description: The amount in cents, converted to USD
+      - name: created_at
+        description: The timestamp of payment in a format YYYY-MM-DD
+      - name: status
+        description: Fail in case the payment didn't worked. Sucsess if the payment went well
